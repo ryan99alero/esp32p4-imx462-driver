@@ -1,0 +1,30 @@
+menu "IMX462 camera sensor"
+
+    config CAMERA_IMX462_BAYER_PATTERN
+        int "Bayer pattern of the cropped window (0 RGGB, 1 GRBG, 2 GBRG, 3 BGGR)"
+        range 0 3
+        default 0
+        help
+            The IMX290 family reads out RGGB. If the picture comes out with red
+            and blue swapped, use 3; a green or magenta cast means 1 or 2.
+
+    config CAMERA_IMX462_MAX_GAIN_STEP
+        int "Highest gain step the AGC may use (0.3 dB each)"
+        range 0 230
+        default 140
+        help
+            0..90 is analogue gain (0 to 27 dB). Steps above that add digital
+            gain on top, up to 230 = 69 dB. 140 is 42 dB.
+
+    config CAMERA_IMX462_NIGHT_MAX_GAIN_STEP
+        int "Highest gain step in night mode (0.3 dB each)"
+        range 0 230
+        default 170
+
+    config CAMERA_IMX462_HCG
+        bool "High conversion gain (HCG) mode"
+        default y
+        help
+            The IMX462's low-noise, low-light mode. Costs highlight headroom.
+
+endmenu

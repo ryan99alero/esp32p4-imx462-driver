@@ -1,0 +1,9 @@
+version: "1.0.0"
+description: Sony IMX462 MIPI-CSI camera sensor driver for ESP32-P4 (esp_cam_sensor / esp_video)
+url: https://github.com/SAMS0N1TE/esp32p4-imx462
+license: GPL-3.0-only
+targets:
+  - esp32p4
+dependencies:
+  idf: ">=5.4"
+  espressif/esp_cam_sensor: ">=2.3"
